@@ -33,8 +33,10 @@ echo
 }
 #===============================================================================
 
+OPEN_SSL_INC=${OPEN_SSL_INC:="d:/corelab_proj/android_lib/openssl/usr/openssl-1.0.2h/armeabi-v7a/include"}
+POCO_PREFIX=${POCO_PREFIX:=${PWD}/Poco/poco}
 POCO_VER=$1
-POCO_DIR=${PWD}/Poco/poco-$POCO_VER
+POCO_DIR=${POCO_PREFIX}-${POCO_VER}
 IOS_VER=$2
 
 BUILD=$3
@@ -86,7 +88,7 @@ witeMessage "Building Poco $POCO_VER for Android"
 pushd ${PWD}
 
 cd Platform/Android
-./build_android.sh $POCO_DIR
+OPEN_SSL_INC=$OPEN_SSL_INC ./build_android.sh $POCO_DIR
 
 popd
 

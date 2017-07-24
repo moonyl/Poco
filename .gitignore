@@ -4,3 +4,4 @@ Build/*
 Archives/
 Platform/Android/toolchain/*
 Poco/*/*
+Platform/Android/lib/
