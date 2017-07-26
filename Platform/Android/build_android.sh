@@ -50,7 +50,12 @@ cd $POCO
 --omit=CppUnit,CppParser,CodeGeneration,PageCompiler,Remoting,Data/MySQL,Data/ODBC,Data/MongoDB,Zip,XML \
 --include-path=$OPEN_SSL_INC
 
+POCO_BASE=""
+if [ $(uname) == "MSYS_NT-10.0" ]; then
 export POCO_BASE=$(cygpath -m $POCO)
+elif [ $(uname) == "Linux" ]; then
+export POCO_BASE=$POCO
+fi
 echo $POCO_BASE
 for ABI in armeabi-v7a arm64-v8a x86 x86_64
 do
